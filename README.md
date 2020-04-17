@@ -54,8 +54,20 @@ Note December, 2017. Things have changed a little. If nothing else works then, (
 like this (example of Windows batch file) in the root of the repository (replace the path\to\file):
 <pre> ".\target\appassembler\bin\access2csv.bat" --input ".\path\to\file" --output . --write-null NULL --quote-all false --schema --with-header </pre>
 
+### Docker build
 
-## Depenencies
+To run with docker first build the image then it can be run with the following commands
+
+```sh
+docker build -t access2csv .
+```
+example run: 
+```sh
+docker run --rm -v /dir/with/accessfile:/input:rw access2csv --input /input/database.accdb --output /input/output/ --with-header
+```
+
+
+## Dependencies
 
  * [Jackess](http://jackcess.sourceforge.net/) - a pure Java library
    for reading from and writing to MS Access databases
